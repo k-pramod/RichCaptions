@@ -5,10 +5,6 @@ editorControllers.controller('EditorController', ['$scope', '$location', 'videoF
         $scope.message = "Welcome home!";
         $scope.videos = {};
 
-        $scope.redirect = function(newLocation) {
-            $location.path(newLocation);
-        };
-
         var getVideos = function () {
             videoFactory.getAll()
                 .success(function (data) {
