@@ -1,0 +1,24 @@
+<h1>Editor captioner</h1>
+
+{$ videoId $}
+
+<table st-table="captions" class="table table-striped">
+	<thead>
+	<tr>
+		<th>ID</th>
+		<th>Markup</th>
+		<th>Starttime</th>
+		<th>Endtime</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="caption in captions">
+        <td>{$ caption.id $}</td>
+        <td>{$ caption.markup $}</td>
+        <td>{$ caption.starttime $}</td>
+        <td>{$ caption.endtime$}</td>
+	</tr>
+	</tbody>
+</table>
+
+<katex auto-render>Math $$1/2$$</katex>

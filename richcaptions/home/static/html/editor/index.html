@@ -1,0 +1,24 @@
+<h1>Editor Home</h1>
+
+<p>Here are some videos you may edit:</p>
+
+<table width="100%" class="text-center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Video URL</th>
+            <th>Video title</th>
+            <th>Edit link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <div>
+            <tr ng-repeat="video in videos">
+                <td>{$ video.id $}</td>
+                <td><a ng-href="{$ video.url $}">Click here...</a></td>
+                <td>{$ video.title $}</td>
+                <td><md-button class="md-raised" ng-click="redirect('/editor/' + video.id )">Click here...</md-button></td>
+            </tr>
+        </div>
+    </tbody>
+</table>

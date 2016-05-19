@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'player.apps.PlayerConfig',
     'editor.apps.EditorConfig',
+    'home.apps.HomeConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
