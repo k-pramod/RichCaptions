@@ -16,7 +16,8 @@ urlpatterns = [
 
 
 router = routers.SimpleRouter()
-router.register(r'video', VideoViewSet)
+router.register(r'video', VideoViewSet, base_name='video')
+router.register(r'caption', CaptionViewSet, base_name='caption')
 
 videos_router = routers.NestedSimpleRouter(router, r'video', lookup='video')
 videos_router.register(r'caption', CaptionViewSet, base_name='video-captions')

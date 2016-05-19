@@ -1,22 +1,39 @@
-from rest_framework import serializers, status
-from rest_framework.response import Response
+from rest_framework import serializers
 from rest_framework_nested.relations import NestedHyperlinkedRelatedField
+from rest_framework.relations import HyperlinkedRelatedField, HyperlinkedIdentityField
 
 from player.models import Video
 from editor.models import Caption
 
-from .forms import VideoAPIForm
-from .forms import CaptionAPIForm
+from .validators import required
 
-from .utils import validate_against_model
+
+class CaptionSerializer(serializers.ModelSerializer):
+    id = serializers.ReadOnlyField()
+    video_id = serializers.IntegerField()
+
+    # Declare all the model fields as serializers
+    markup = serializers.CharField(max_length=1024, allow_blank=False, validators=[required])
+    starttime = serializers.IntegerField(validators=[required])
+    endtime = serializers.IntegerField(validators=[required])
+
+    class Meta:
+        model = Caption
+        fields = ('id', 'video_id', 'markup', 'starttime', 'endtime')
+        read_only_fields = ('video',)
 
 
 class VideoSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.ReadOnlyField()
 
+    # Declare all the model fields as serializers
+    url = serializers.URLField(allow_blank=False, validators=[required])
+    resource_id = serializers.CharField(max_length=16, allow_blank=False, validators=[required])
+    title = serializers.CharField(max_length=64, allow_blank=False)
+
     class Meta:
         model = Video
-        fields = '__all__'
+        fields = ('id', 'resource_id', 'url', 'title', 'captions', 'caption_set')
         read_only_fields = ('resource_id', 'url')
 
     caption_set = NestedHyperlinkedRelatedField(many=True,
@@ -25,28 +42,4 @@ class VideoSerializer(serializers.HyperlinkedModelSerializer):
                                                 parent_lookup_field='video',
                                                 parent_lookup_url_kwarg='video_pk')
 
-    def validate(self, attrs):
-        validate_against_model(attrs, VideoAPIForm)
-        return attrs
-
-
-class CaptionSerializer(serializers.ModelSerializer):
-    id = serializers.ReadOnlyField()
-    video_id = serializers.IntegerField()
-
-    class Meta:
-        model = Caption
-        fields = '__all__'
-        read_only_fields = ('video',)
-
-    def validate(self, attrs):
-        validate_against_model(attrs, CaptionAPIForm)
-        return attrs
-
-    def create(self, validated_data):
-        video_id = validated_data.pop('video_id')
-        video = Video.objects.create(id=video_id)
-        caption = Caption.objects.create(**validated_data, video=video)
-        return caption
-
-
+    captions = CaptionSerializer(read_only=True, many=True, data=Meta.model.caption_set)

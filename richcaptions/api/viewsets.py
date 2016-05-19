@@ -17,7 +17,6 @@ class CaptionViewSet(viewsets.ModelViewSet):
     serializer_class = CaptionSerializer
 
     def list(self, request, **kwargs):
-        print(kwargs)
         queryset = self.queryset.filter(pk=kwargs['video_pk'])
         serializer = CaptionSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data)
