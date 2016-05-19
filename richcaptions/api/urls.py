@@ -1,8 +1,3 @@
-from django.conf.urls import url, include, patterns
-from rest_framework_nested import routers
-
-from .viewsets import VideoViewSet, CaptionViewSet
-
 """# Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'videos', VideoViewSet)
@@ -14,15 +9,20 @@ urlpatterns = [
     url(r'^', include(router.urls)),
 ]"""
 
+from rest_framework_extensions.routers import ExtendedSimpleRouter
 
-router = routers.SimpleRouter()
-router.register(r'video', VideoViewSet, base_name='video')
-router.register(r'caption', CaptionViewSet, base_name='caption')
+from .viewsets import VideoViewSet, CaptionViewSet
 
-videos_router = routers.NestedSimpleRouter(router, r'video', lookup='video')
-videos_router.register(r'caption', CaptionViewSet, base_name='video-captions')
+router = ExtendedSimpleRouter()
+(
+    router
+        .register(r'videos',
+                  VideoViewSet,
+                  base_name='video')
+        .register(r'captions',
+                  CaptionViewSet,
+                  base_name='videos-caption',
+                  parents_query_lookups=['video_caption'])
+)
 
-urlpatterns = [
-    url(r'^', include(router.urls)),
-    url(r'^', include(videos_router.urls)),
-]
+urlpatterns = router.urls

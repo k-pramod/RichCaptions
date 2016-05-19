@@ -1,6 +1,4 @@
 from rest_framework import serializers
-from rest_framework_nested.relations import NestedHyperlinkedRelatedField
-from rest_framework.relations import HyperlinkedRelatedField, HyperlinkedIdentityField
 
 from player.models import Video
 from editor.models import Caption
@@ -23,7 +21,7 @@ class CaptionSerializer(serializers.ModelSerializer):
         read_only_fields = ('video',)
 
 
-class VideoSerializer(serializers.HyperlinkedModelSerializer):
+class VideoSerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField()
 
     # Declare all the model fields as serializers
@@ -33,13 +31,5 @@ class VideoSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Video
-        fields = ('id', 'resource_id', 'url', 'title', 'captions', 'caption_set')
+        fields = ('id', 'resource_id', 'url', 'title', 'caption_set')
         read_only_fields = ('resource_id', 'url')
-
-    caption_set = NestedHyperlinkedRelatedField(many=True,
-                                                read_only=True,
-                                                view_name='video-captions-detail',
-                                                parent_lookup_field='video',
-                                                parent_lookup_url_kwarg='video_pk')
-
-    captions = CaptionSerializer(read_only=True, many=True, data=Meta.model.caption_set)

@@ -17,6 +17,6 @@ class Caption(models.Model):
     starttime = models.IntegerField(blank=False, verbose_name="Start time (ms)")
     endtime = models.IntegerField(blank=False, verbose_name="End time (ms)")
 
-    def clean(self):
-        if self.starttime > self.endtime:
-            raise ValueError("Video startime MUST be less than endtime")
+    def __str__(self):
+        title = self.video.title
+        return "\"{}\" for {}".format(self.markup, title if title != "" else self.video.resource_id)

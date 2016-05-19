@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework_nested',
+    'rest_framework_extensions',
     'api.apps.ApiConfig',
     'player.apps.PlayerConfig',
     'editor.apps.EditorConfig',
