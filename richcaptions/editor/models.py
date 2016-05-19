@@ -16,3 +16,7 @@ class Caption(models.Model):
     # The start and end times for displaying the caption
     starttime = models.IntegerField(blank=False, verbose_name="Start time (ms)")
     endtime = models.IntegerField(blank=False, verbose_name="End time (ms)")
+
+    def clean(self):
+        if self.starttime > self.endtime:
+            raise ValueError("Video startime MUST be less than endtime")
