@@ -7,7 +7,7 @@ playerControllers.controller('PlayerController', ['$scope', '$routeParams', 'vid
         $scope.video = null;
         $scope.captions = null;
 
-        var defaultCaption = {'markup': 'Latex $1/2$'};
+        var defaultCaption = {'markup': 'No caption right now...'};
 
         $scope.currentCaption = defaultCaption;
 
