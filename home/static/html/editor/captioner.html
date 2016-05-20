@@ -1,15 +1,88 @@
-<h1>Editor captioner</h1>
-
-<h3>Captioning interface</h3>
-<div class="row">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div id="player" data-video-id="{$ videoId $}" data-resource-id="{$ video.resource_id $}"></div>
+<div layout="row" layout-padding>
+    <div flex="66">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row player" style="padding: 1em;">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <youtube-video class="embed-responsive-item"
+                                       video-id="video.resource_id"
+                                       player="player"></youtube-video>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" layout="row">
+                <div flex="90" style="font-size:100%;">
+                    <div class="caption-container">
+                        <span katex auto-render bind="currentCaption.markup"></span>
+                    </div>
+                    <div class="caption-container">
+                        <katex auto-render bind="captioner.newCaption.markup"></katex>
+                    </div>
+                </div>
+                <div flex="10" class="text-center">
+                    <b>Time:</b><br>
+                    <span id="currentTime">{$ currentTime $}</span>
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
+        <div layout="row" class="newCaption-container">
+            <div flex="15">
+                <input type="number"
+                       ng-model="captioner.newCaption.starttime_sec"
+                       name="start"
+                       placeholder="Start"/>
+            </div>
+            <div flex="70">
+                <input type="text"
+                       ng-model="captioner.newCaption.markup"
+                       ng-change="updateStart()"
+                       ng-keypress="trySave($event)"
+                       name="markup"
+                       placeholder="Markup"/>
+            </div>
+            <div flex="15">
+                <input type="number"
+                       ng-model="captioner.newCaption.endtime_sec"
+                       name="end"
+                       placeholder="End"/>
+            </div>
+        </div>
+    </div>
+    <div flex="34">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <md-button ng-click="skip(-5)"><<<</md-button>
+                <md-button ng-click="player.playVideo()">Play</md-button>
+                <md-button ng-click="player.pauseVideo()">Pause</md-button>
+                <md-button ng-click="skip(+5)">>>></md-button>
+            </div>
+            <div class="panel-body">
+                <div class="caption-editor-container">
+                    <b>New captions: </b><br>
+                    <table st-table="newCaptions" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Times</th>
+                            <th>Markup</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="caption in newCaptions">
+                            <td>
+                                {$ caption.starttime_sec $}
+                                <br>
+                                {$ caption.endtime_sec $}
+                            </td>
+                            <td><span katex auto-render bind="caption.markup"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 <h3>Captions</h3>
 
