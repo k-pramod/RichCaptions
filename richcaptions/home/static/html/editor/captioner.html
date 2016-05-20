@@ -2,13 +2,9 @@
 
 <h3>Captioning interface</h3>
 <div class="row">
-
-    <script src="/static/js/library/editor.js"></script>
-    <script src="/static/js/library/youtube-player.js"></script>
-
     <div class="panel panel-default">
         <div class="panel-heading">
-            <div id="player" data-video-id="{$ videoId $}" data-resource-id="{$ videoId $}"></div>
+            <div id="player" data-video-id="{$ videoId $}" data-resource-id="{$ video.resource_id $}"></div>
         </div>
         <div class="panel-body">
         </div>
@@ -17,23 +13,4 @@
 
 <h3>Captions</h3>
 
-<table st-table="captions" class="table table-striped">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Markup</th>
-        <th>Rendered markup</th>
-        <th>Start time</th>
-        <th>End time</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="caption in captions">
-        <td>{$ caption.id $}</td>
-        <td>{$ caption.markup $}</td>
-        <td><span katex auto-render bind="caption.markup"></span></td>
-        <td>{$ caption.starttime $}</td>
-        <td>{$ caption.endtime$}</td>
-    </tr>
-    </tbody>
-</table>
+<div ng-include="'/static/html/common/tables/player/caps.html'"></div>

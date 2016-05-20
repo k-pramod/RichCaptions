@@ -1,0 +1,22 @@
+<h3>Player</h3>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <youtube-video video-id="video.resource_id" player="player"></youtube-video>
+        </div>
+        <div class="row">
+            <md-button ng-click="player.playVideo()">Play</md-button>
+            <md-button ng-click="player.pauseVideo()">Pause</md-button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <span katex auto-render bind="currentCaption.markup"></span>
+
+        <!--span katex auto-render bind="currentCaption.markup"></span-->
+    </div>
+</div>
+
+<h3>Captions</h3>
+
+<div ng-include="'/static/html/common/tables/player/caps.html'"></div>
