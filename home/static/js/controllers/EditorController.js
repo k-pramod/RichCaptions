@@ -5,17 +5,14 @@ editorControllers.controller('EditorController', ['$scope', '$location', 'videoF
         $scope.message = "Welcome home!";
         $scope.videos = {};
 
-        var getVideos = function () {
-            videoFactory.getAll()
-                .success(function (data) {
-                    $scope.videos = data['results'];
-                })
-                .error(function (data, status, headers, config) {
-                    alert("Error in getting videos");
-                });
-        };
+        videoFactory.getAll()
+            .success(function (data) {
+                $scope.videos = data['results'];
+            })
+            .error(function () {
+                alert("Error in getting videos");
+            });
 
-        getVideos();
     }]
 );
 
