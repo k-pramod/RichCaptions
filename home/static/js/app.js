@@ -17,12 +17,15 @@ richCaptionsApp.run(function ($rootScope, $location, $route) {
     $rootScope.selectedTab = 0;
     $rootScope.$on("$routeChangeSuccess", function(){
         $rootScope.selectedTab = $route.current.$$route.tab;
-        console.log($rootScope.selectedTab);
     });
 
     // Handle redirections
-    $rootScope.redirect = function (newLocation) {
-        $location.path(newLocation);
+    $rootScope.redirect = function (newLocation, absolute) {
+        if (absolute) {
+            window.location.href = '/' + newLocation;
+        } else {
+            $location.path(newLocation);
+        }
     };
 });
 

@@ -9,11 +9,11 @@ urlpatterns = [
     url(r'^', include(router.urls)),
 ]"""
 
-from rest_framework_extensions.routers import ExtendedSimpleRouter
+from rest_framework_extensions.routers import ExtendedDefaultRouter as Router
 
 from .viewsets import VideoViewSet, CaptionViewSet
 
-router = ExtendedSimpleRouter()
+router = Router()
 (
     router
         .register(r'videos',
