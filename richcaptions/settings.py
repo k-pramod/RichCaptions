@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_filters',
     'corsheaders',
     'rest_framework_extensions',
     'api.apps.ApiConfig',
@@ -150,6 +151,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
     'PAGE_SIZE': 1000,
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework_filters.backends.DjangoFilterBackend',
+    )
 }
 
 # CORS settings

@@ -25,4 +25,8 @@ router = Router()
                   parents_query_lookups=['video_caption'])
 )
 
+router.register(r'captions',
+                CaptionViewSet,
+                base_name='caption')
+
 urlpatterns = router.urls
