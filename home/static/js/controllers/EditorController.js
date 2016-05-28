@@ -1,7 +1,7 @@
 'use strict';
 
-editorControllers.controller('EditorController', ['$scope', '$location', 'videoFactory',
-    function EditorController($scope, $location, videoFactory) {
+editorControllers.controller('EditorController', ['$scope', '$location', 'videoFactory', 'toastFactory',
+    function EditorController($scope, $location, videoFactory, toastFactory) {
         $scope.message = "Welcome home!";
         $scope.videos = {};
 
@@ -10,7 +10,8 @@ editorControllers.controller('EditorController', ['$scope', '$location', 'videoF
                 $scope.videos = data['results'];
             })
             .error(function () {
-                alert("Error in getting videos");
+                toastFactory.show('error', 'Error:', 'unable to get videos.');
+                console.warn(data);
             });
 
     }]

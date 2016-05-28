@@ -1,7 +1,7 @@
 'use strict';
 
-editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 'videoFactory', 'captionFactory',
-    function CaptioningController($scope, $routeParams, videoFactory, captionFactory) {
+editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 'videoFactory', 'captionFactory', 'toastFactory',
+    function CaptioningController($scope, $routeParams, videoFactory, captionFactory, toastFactory) {
 
         $scope.videoId = $routeParams.videoId;
         $scope.video = {};
@@ -84,7 +84,8 @@ editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 
                 $scope.video = data;
             })
             .error(function (data, status, headers, config) {
-                alert("Error in getting videos");
+                toastFactory.show('error', 'Error:', 'unable to get video.');
+                console.warn(data);
             });
 
         captionFactory.get($scope.videoId)
@@ -92,7 +93,8 @@ editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 
                 $scope.captions = data['results'];
             })
             .error(function () {
-                alert('Error');
+                toastFactory.show('error', 'Error:', 'unable to get captions.');
+                console.warn(data);
             });
 
         setInterval(function () {

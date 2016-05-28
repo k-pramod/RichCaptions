@@ -1,7 +1,7 @@
 'use strict';
 
-playerControllers.controller('PlayerController', ['$scope', '$routeParams', 'videoFactory', 'captionFactory',
-    function PlayerController($scope, $routeParams, videoFactory, captionFactory) {
+playerControllers.controller('PlayerController', ['$scope', '$routeParams', 'videoFactory', 'captionFactory', 'toastFactory',
+    function PlayerController($scope, $routeParams, videoFactory, captionFactory, toastFactory) {
 
         $scope.videoId = $routeParams.videoId;
         $scope.video = null;
@@ -15,7 +15,8 @@ playerControllers.controller('PlayerController', ['$scope', '$routeParams', 'vid
                 $scope.video = data;
             })
             .error(function () {
-                alert("Error in getting videos");
+                toastFactory.show('error', 'Error:', 'unable to get videos.');
+                console.warn(data);
             });
 
         captionFactory.get($scope.videoId)
@@ -23,7 +24,8 @@ playerControllers.controller('PlayerController', ['$scope', '$routeParams', 'vid
                 $scope.captions = data['results'];
             })
             .error(function () {
-                alert('Error in getting captions');
+                toastFactory.show('error', 'Error:', 'unable to get captions.');
+                console.warn(data);
             });
 
         setInterval(function () {

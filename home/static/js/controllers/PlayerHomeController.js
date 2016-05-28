@@ -1,7 +1,7 @@
 'use strict';
 
-playerControllers.controller('PlayerHomeController', ['$scope', 'videoFactory',
-    function PlayerHomeController($scope, videoFactory) {
+playerControllers.controller('PlayerHomeController', ['$scope', 'videoFactory', 'toastFactory',
+    function PlayerHomeController($scope, videoFactory, toastFactory) {
         $scope.message = "Welcome to the playerHomeController";
 
         $scope.videos = {};
@@ -11,7 +11,8 @@ playerControllers.controller('PlayerHomeController', ['$scope', 'videoFactory',
                 $scope.videos = data['results'];
             })
             .error(function (data, status, headers, config) {
-                alert("Error in getting videos");
+                toastFactory.show('error', 'Error:', 'unable to get videos.');
+                console.warn(data);
             });
     }
 ]);

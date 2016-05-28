@@ -76,3 +76,15 @@ md-tabs {
 .newCaption-container input {
     width: 100%;
 }
+
+.md-toast.error {
+    background-color: #C62828;
+    color: white;
+}
+.md-toast.b {
+    font-weight: bolder;
+}
+
+.md-toast.success {
+    background-color: green;
+}
