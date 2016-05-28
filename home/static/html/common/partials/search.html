@@ -1,13 +1,19 @@
-<div ng-controller="SearchController">
-    <md-input-container>
-        <label>search</label>
-        <input type="text" ng-model="text">
-    </md-input-container>
-    <md-button ng-click="search()">Search</md-button>
+<div ng-controller="SearchController" layout="row">
+    <div flex="25">
+        <md-input-container class="margin-bottom-none">
+            <label>search</label>
+            <input type="text" ng-model="text">
+        </md-input-container>
+        <md-button ng-click="search()">Search</md-button>
+    </div>
 
-    <div>
-        <ul ng-repeat="result in results">
-            <li><a target="_blank" href="#/player/{$ result.id $}">{$ result.title $}</a></li>
-        </ul>
+    <div ng-show="resultsFound" flex="75" class="search-results">
+        <md-list>
+            <md-list-item ng-repeat="result in results">
+                <div class="md-list-item-text" layout="column">
+                    <h4><a target="_blank" href="#/player/{$ result.id $}">{$ result.title $}</a></h4>
+                </div>
+            </md-list-item>
+        </md-list>
     </div>
 </div>

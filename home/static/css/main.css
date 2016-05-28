@@ -85,6 +85,10 @@ md-tabs {
     font-weight: bolder;
 }
 
-.md-toast.success {
-    background-color: green;
+.md-toast.good {
+    background-color: #4CAF50;
+}
+
+.margin-bottom-none {
+    margin-bottom: 0;
 }

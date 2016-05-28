@@ -17,11 +17,14 @@ playerControllers.controller('SearchController', ['$scope', 'searchFactory', 'to
                 })
                 .error(function (data) {
                     $scope.resultsFound = false;
+                })
+                .finally(function () {
+                    if (!$scope.resultsFound) {
+                        toastFactory.show('error', 'No results', '(or server error)');
+                    } else {
+                        toastFactory.show('good', 'Results found!', '');
+                    }
                 });
-
-            if ($scope.resultsFound == false) {
-                toastFactory.show('error', 'No results', '(or server error)');
-            }
         }
     }
 ]);
