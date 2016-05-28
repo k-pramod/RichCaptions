@@ -1,3 +1,8 @@
+{% load staticfiles %}
+
+{# Custom styling #}
+<link rel="stylesheet" href="{% static "css/main.css" %}">
+
 {# jQuery #}
 <script src="https://code.jquery.com/jquery-2.2.3.min.js" crossorigin="anonymous"></script>
 
@@ -5,7 +10,7 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
 
 {# Custom JavaScript file(s) #}
-<script src="/static/js/library/editor.js"></script>
+<script src="{% static "js/libraries/editor.js" %}"></script>
 
 {# AngularJS 1.5.3 #}
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
@@ -26,20 +31,20 @@
 {# KaTeX (LaTeX rendering) #}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
-<script type="text/javascript" src="/static/js/library/katex-auto-render.js"></script>
-<script type="text/javascript" src="/static/js/library/angular-katex.js"></script>
+<script type="text/javascript" src="{% static "js/libraries/katex-auto-render.js" %}"></script>
+<script type="text/javascript" src="{% static "js/libraries/angular-katex.js" %}"></script>
 
 <script src="https://www.youtube.com/iframe_api"></script>
-<script type="text/javascript" src="/static/js/library/angular-youtube-embed.js"></script>
+<script type="text/javascript" src="{% static "js/libraries/angular-youtube-embed.js" %}"></script>
 
-<script type="text/javascript" src="/static/js/app.js"></script>
-<script type="text/javascript" src="/static/js/routes.js"></script>
-<script type="text/javascript" src="/static/js/controllers.js"></script>
-<script type="text/javascript" src="/static/js/controllers/HomeController.js"></script>
-<script type="text/javascript" src="/static/js/controllers/PlayerController.js"></script>
-<script type="text/javascript" src="/static/js/controllers/PlayerHomeController.js"></script>
-<script type="text/javascript" src="/static/js/controllers/EditorController.js"></script>
-<script type="text/javascript" src="/static/js/controllers/CaptioningController.js"></script>
-<script type="text/javascript" src="/static/js/services/VideoFactory.js"></script>
-<script type="text/javascript" src="/static/js/services/CaptionFactory.js"></script>
+<script type="text/javascript" src="{% static "js/app.js" %}"></script>
+<script type="text/javascript" src="{% static "js/routes.js" %}"></script>
+<script type="text/javascript" src="{% static "js/controllers.js" %}"></script>
+<script type="text/javascript" src="{% static "js/controllers/HomeController.js" %}"></script>
+<script type="text/javascript" src="{% static "js/controllers/PlayerController.js" %}"></script>
+<script type="text/javascript" src="{% static "js/controllers/PlayerHomeController.js" %}"></script>
+<script type="text/javascript" src="{% static "js/controllers/EditorController.js" %}"></script>
+<script type="text/javascript" src="{% static "js/controllers/CaptioningController.js" %}"></script>
+<script type="text/javascript" src="{% static "js/services/VideoFactory.js" %}"></script>
+<script type="text/javascript" src="{% static "js/services/CaptionFactory.js" %}"></script>
 
