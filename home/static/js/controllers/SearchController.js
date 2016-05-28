@@ -1,7 +1,8 @@
 'use strict';
 
-playerControllers.controller('SearchController', ['$scope', 'searchFactory', 'toastFactory',
-    function SearchController($scope, searchFactory, toastFactory) {
+playerControllers.controller('SearchController', ['$scope', '$rootScope', 'searchFactory', 'toastFactory',
+    function SearchController($scope, $rootScope, searchFactory, toastFactory) {
+
         $scope.text = "";
         $scope.results = [];
         $scope.resultsFound = false;
@@ -25,6 +26,6 @@ playerControllers.controller('SearchController', ['$scope', 'searchFactory', 'to
                         toastFactory.show('good', 'Results found!', '');
                     }
                 });
-        }
+        };
     }
 ]);

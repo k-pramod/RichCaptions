@@ -20,6 +20,10 @@ richCaptionsApp.config(['$routeProvider',
             templateUrl: '/static/html/editor/captioner.html',
             controller: 'CaptioningController',
             tab: 2
+        }).when('/search', {
+            templateUrl: '/static/html/search/index.html',
+            controller: 'SearchController',
+            tab: 3
         }).otherwise({
             redirectTo: '/'
         });
