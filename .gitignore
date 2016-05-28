@@ -87,3 +87,6 @@ ENV/
 .idea
 
 db.sqlite3
+
+# Django project staticfiles
+richcaptions/staticfiles/
