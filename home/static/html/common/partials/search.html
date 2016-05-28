@@ -1,0 +1,13 @@
+<div ng-controller="SearchController">
+    <md-input-container>
+        <label>search</label>
+        <input type="text" ng-model="text">
+    </md-input-container>
+    <md-button ng-click="search()">Search</md-button>
+
+    <div>
+        <ul ng-repeat="result in results">
+            <li><a target="_blank" href="#/player/{$ result.id $}">{$ result.title $}</a></li>
+        </ul>
+    </div>
+</div>
