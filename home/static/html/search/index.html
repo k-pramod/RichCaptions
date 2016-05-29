@@ -5,22 +5,29 @@
 
                 <div flex="33">
                     <md-input-container class="margin-bottom-none">
-                        <label>search</label>
+                        <label>Search text</label>
                         <input type="text" ng-model="text">
                     </md-input-container>
                     <md-button ng-click="search()">Search</md-button>
                 </div>
 
                 <div ng-show="resultsFound" flex="67" class="search-results">
+                    <p class="bold margin-bottom-none">{$ results.length $} results found:</p>
                     <md-list>
-                        <md-list-item ng-repeat="result in results">
-                            <div class="md-list-item-text" layout="column">
-                                <h4><a target="_blank" href="#/player/{$ result.id $}">{$ result.title $}</a></h4>
-                            </div>
-                        </md-list-item>
+                        <div ng-repeat="result in results">
+                            <md-list-item>
+                                <div class="md-list-item-text" layout="column">
+                                    <h4 class="margin-top-none">
+                                        <a target="_blank" href="#/player/{$ result.id $}">{$ result.title $}</a>
+                                    </h4>
+                                    <p class="margin-bottom-none">{$ result.resource_id $}</p>
+                                </div>
+                            </md-list-item>
+                            <hr>
+                        </div>
                     </md-list>
                 </div>
-                
+
             </div>
         </form>
     </div>

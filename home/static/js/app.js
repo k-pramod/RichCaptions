@@ -15,7 +15,7 @@ var richCaptionsApp = angular.module('RichCaptions',
 richCaptionsApp.run(function ($rootScope, $location, $route) {
     // Move the navbar's underline as different routes are loaded
     $rootScope.selectedTab = 0;
-    $rootScope.$on("$routeChangeSuccess", function(){
+    $rootScope.$on("$routeChangeSuccess", function () {
         $rootScope.selectedTab = $route.current.$$route.tab;
     });
 
@@ -32,4 +32,10 @@ richCaptionsApp.run(function ($rootScope, $location, $route) {
 richCaptionsApp.config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');
+});
+
+richCaptionsApp.config(function ($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue')
+        .accentPalette('red');
 });

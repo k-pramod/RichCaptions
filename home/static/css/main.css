@@ -89,6 +89,14 @@ md-tabs {
     background-color: #4CAF50;
 }
 
+.margin-top-none {
+    top: 0;
+}
+
 .margin-bottom-none {
     margin-bottom: 0;
+}
+
+.bold {
+    font-weight: bold;
 }
