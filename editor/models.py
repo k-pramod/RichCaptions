@@ -1,5 +1,4 @@
 from django.db import models
-
 from player.models import Video
 
 

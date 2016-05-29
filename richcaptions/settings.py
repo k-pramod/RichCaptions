@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -25,6 +26,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'rich-captions.herokuapp.com', 'rc.pramodk.net']
+
 
 # Application definition
 
@@ -82,6 +84,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'richcaptions.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -94,7 +97,6 @@ DATABASES = {
 
 # Update database configuration with $DATABASE_URL.
 import dj_database_url
-
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
@@ -116,6 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -128,6 +131,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
@@ -148,6 +152,8 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+
+
 # Django REST framework settings
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -164,13 +170,12 @@ REST_FRAMEWORK = {
 # CORS settings
 CORS_ORIGIN_ALLOW_ALL = True
 
+
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+
 # Django Compressor settings
 COMPRESS_ENABLED = True
-COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',
-                        'compressor.filters.cssmin.CSSMinFilter',
-                        'compressor.filters.jsmin.JSMinFilter']
