@@ -1,8 +1,7 @@
 from rest_framework import serializers
 
-from player.models import Video
 from editor.models import Caption
-
+from player.models import Video
 from .validators import required
 
 

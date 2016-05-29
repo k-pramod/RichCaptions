@@ -1,5 +1,5 @@
 /* eslint no-constant-condition:0 */
-var findEndOfMath = function(delimiter, text, startIndex) {
+var findEndOfMath = function (delimiter, text, startIndex) {
     // Adapted from
     // https://github.com/Khan/perseus/blob/master/src/perseus-markdown.jsx
     var index = startIndex;
@@ -27,7 +27,7 @@ var findEndOfMath = function(delimiter, text, startIndex) {
     return -1;
 };
 
-var splitAtDelimiters = function(startData, leftDelim, rightDelim, display) {
+var splitAtDelimiters = function (startData, leftDelim, rightDelim, display) {
     var finalData = [];
 
     for (var i = 0; i < startData.length; i++) {
@@ -99,7 +99,7 @@ var splitAtDelimiters = function(startData, leftDelim, rightDelim, display) {
     return finalData;
 };
 
-var splitWithDelimiters = function(text, delimiters) {
+var splitWithDelimiters = function (text, delimiters) {
     var data = [{type: "text", data: text}];
     for (var i = 0; i < delimiters.length; i++) {
         var delimiter = delimiters[i];
@@ -110,7 +110,7 @@ var splitWithDelimiters = function(text, delimiters) {
     return data;
 };
 
-var renderMathInText = function(text, delimiters) {
+var renderMathInText = function (text, delimiters) {
     var data = splitWithDelimiters(text, delimiters);
 
     var fragment = document.createDocumentFragment();
@@ -144,7 +144,7 @@ var renderMathInText = function(text, delimiters) {
     return fragment;
 };
 
-var renderElem = function(elem, delimiters, ignoredTags) {
+var renderElem = function (elem, delimiters, ignoredTags) {
     for (var i = 0; i < elem.childNodes.length; i++) {
         var childNode = elem.childNodes[i];
         if (childNode.nodeType === 3) {
@@ -155,7 +155,7 @@ var renderElem = function(elem, delimiters, ignoredTags) {
         } else if (childNode.nodeType === 1) {
             // Element node
             var shouldRender = ignoredTags.indexOf(
-                childNode.nodeName.toLowerCase()) === -1;
+                    childNode.nodeName.toLowerCase()) === -1;
 
             if (shouldRender) {
                 renderElem(childNode, delimiters, ignoredTags);
@@ -178,7 +178,7 @@ var defaultOptions = {
     ],
 };
 
-var extend = function(obj) {
+var extend = function (obj) {
     // Adapted from underscore.js' `_.extend`. See LICENSE.txt for license.
     var source;
     var prop;
@@ -193,7 +193,7 @@ var extend = function(obj) {
     return obj;
 };
 
-var renderMathInElement = function(elem, options) {
+var renderMathInElement = function (elem, options) {
     if (!elem) {
         throw new Error("No element provided to render");
     }

@@ -1,12 +1,11 @@
-from ..forms import VideoForm
-
+from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from django.core.urlresolvers import reverse
+
+from ..forms import VideoForm
 
 
 def create(request):
-
     if request.method == 'POST':
         form = VideoForm(request.POST)
         if form.is_valid():

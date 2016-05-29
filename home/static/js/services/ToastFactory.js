@@ -4,10 +4,10 @@ richCaptionsApp.factory('toastFactory', function ($mdToast) {
     var getSimpleTemplate = function (type, title, message) {
         return '<md-toast class="md-toast ' + type + '">'
             + '<md-toast-content>'
-                + '<b>' + title + '</b>'
-                + '&nbsp;' + message
+            + '<b>' + title + '</b>'
+            + '&nbsp;' + message
             + '</md-toast-content>'
-        + '</md-toast>';
+            + '</md-toast>';
     };
 
     factory.show = function (type, title, message) {

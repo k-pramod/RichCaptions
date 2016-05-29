@@ -6,13 +6,13 @@
     {% include "common/head.html" %}
 </head>
 <body ng-app="RichCaptions" ng-cloak>
-    <div layout="row" layout-padding>
-        <div flex="10" hide-sm hide-xs></div>
-        <div flex="80" flex-sm="100" flex-xs="100">
-            <div ng-include="'/static/html/common/partials/navbar.html'"></div>
-            <div ng-view></div>
-        </div>
-        <div flex="10" hide-sm hide-xs></div>
+<div layout="row" layout-padding>
+    <div flex="10" hide-sm hide-xs></div>
+    <div flex="80" flex-sm="100" flex-xs="100">
+        <div ng-include="'/static/html/common/partials/navbar.html'"></div>
+        <div ng-view></div>
     </div>
+    <div flex="10" hide-sm hide-xs></div>
+</div>
 </body>
 </html>
