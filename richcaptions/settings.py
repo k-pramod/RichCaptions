@@ -156,7 +156,5 @@ STATICFILES_FINDERS = (
 )
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-COMPRESS_URL = STATIC_URL
-
 # Django Compressor settings
 COMPRESS_ENABLED = True
