@@ -1,0 +1,17 @@
+<div layout="row">
+    <div class="center-block" ng-if="loading">
+        <md-progress-circular md-diameter="72"></md-progress-circular>
+    </div>
+    <md-card flex-gt-sm="50" flex-sm="100" flex-xs="100" md-theme-watch ng-repeat="video in videos">
+        <md-card-title>
+            <md-card-title-text>
+                <a ng-href="/#/player/{$ video.id $}" class="md-headline">{$ video.title $}</a>
+                <span class="md-subhead">{$ video.resource_id $}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="redirect('/editor/' + video.id )">edit captions</md-button>
+            <md-button ng-click="redirect('/player/' + video.id )">watch now</md-button>
+        </md-card-actions>
+    </md-card>
+</div>

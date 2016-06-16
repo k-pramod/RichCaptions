@@ -6,8 +6,11 @@ playerControllers.controller('PlayerHomeController', ['$scope', 'videoFactory', 
 
         $scope.videos = {};
 
+        $scope.loading = true;
+
         videoFactory.getAll()
             .success(function (data) {
+                $scope.loading = false;
                 $scope.videos = data['results'];
             })
             .error(function (data, status, headers, config) {
