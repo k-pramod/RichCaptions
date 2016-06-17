@@ -3,22 +3,22 @@
         <form>
             <div layout-padding layout="row">
 
-                <div flex="33">
-                    <md-input-container class="margin-bottom-none">
-                        <label>Search text</label>
-                        <input type="text" ng-model="text">
-                    </md-input-container>
-                    <md-button ng-click="search()">Search</md-button>
-
-                    <div class="center-block" ng-if="loading">
-                        <md-progress-circular md-diameter="72"></md-progress-circular>
-                    </div>
-
+                <div flex="25" layout="column">
+                    <form layout="row">
+                        <md-input-container class="margin-bottom-none">
+                            <label>Search text</label>
+                            <input type="text" ng-model="text">
+                        </md-input-container>
+                        <div class="center-block">
+                            <md-button type="submit" ng-if="!loading" ng-click="search()">Search</md-button>
+                            <md-progress-circular ng-if="loading" md-diameter="24"></md-progress-circular>
+                        </div>
+                    </form>
                 </div>
-
-                <div ng-show="resultsFound" flex="67" class="search-results">
+                <div ng-show="resultsFound" flex="75" class="search-results">
                     <p class="bold margin-bottom-none">{$ results.length $} results found:</p>
                     <md-list>
+                        <hr>
                         <div ng-repeat="result in results">
                             <md-list-item>
                                 <div class="md-list-item-text" layout="column">
@@ -32,7 +32,6 @@
                         </div>
                     </md-list>
                 </div>
-
             </div>
         </form>
     </div>

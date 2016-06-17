@@ -15,6 +15,8 @@ editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 
         };
         $scope.currentCaption = $scope.defaultCaption;
 
+        $scope.showAllCaptions = false;
+
         $scope.project = {
             description: 'Nuclear Missile Defense System',
             rate: 500
