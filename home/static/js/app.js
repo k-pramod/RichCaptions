@@ -27,6 +27,7 @@ richCaptionsApp.run(function ($rootScope, $location, $route) {
             $location.path(newLocation);
         }
     };
+    $rootScope.Math = window.Math;
 });
 
 richCaptionsApp.config(function ($interpolateProvider) {

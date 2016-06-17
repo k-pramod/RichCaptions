@@ -9,12 +9,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="caption in captions">
+    <tr ng-repeat="caption in captions | orderBy:'starttime'">
         <td>{$ caption.id $}</td>
         <td>{$ caption.markup $}</td>
         <td><span katex auto-render bind="caption.markup"></span></td>
-        <td>{$ caption.starttime $}</td>
-        <td>{$ caption.endtime $}</td>
+        <td>{$ Math.round(caption.starttime / 1000) $}</td>
+        <td>{$ Math.round(caption.endtime / 1000) $}</td>
     </tr>
     </tbody>
 </table>
