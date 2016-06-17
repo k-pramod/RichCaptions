@@ -6,7 +6,9 @@ playerControllers.controller('SearchController', ['$scope', '$rootScope', 'searc
         $scope.text = "";
         $scope.results = [];
         $scope.resultsFound = false;
+        $scope.loading = false;
         $scope.search = function () {
+            $scope.loading = true;
             searchFactory.search($scope.text)
                 .success(function (data) {
                     if (data.count > 0) {
@@ -15,6 +17,7 @@ playerControllers.controller('SearchController', ['$scope', '$rootScope', 'searc
                     } else {
                         $scope.resultsFound = false;
                     }
+                    $scope.loading = false;
                 })
                 .error(function (data) {
                     $scope.resultsFound = false;

@@ -9,6 +9,11 @@
                         <input type="text" ng-model="text">
                     </md-input-container>
                     <md-button ng-click="search()">Search</md-button>
+
+                    <div class="center-block" ng-if="loading">
+                        <md-progress-circular md-diameter="72"></md-progress-circular>
+                    </div>
+
                 </div>
 
                 <div ng-show="resultsFound" flex="67" class="search-results">
