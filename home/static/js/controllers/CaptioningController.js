@@ -16,6 +16,9 @@ editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 
         $scope.currentCaption = $scope.defaultCaption;
 
         $scope.showAllCaptions = false;
+        $scope.toggleCaptions = function () {
+            $scope.showAllCaptions = !$scope.showAllCaptions;
+        };
 
         $scope.project = {
             description: 'Nuclear Missile Defense System',

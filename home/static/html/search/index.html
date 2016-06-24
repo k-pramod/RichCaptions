@@ -10,7 +10,7 @@
                             <input type="text" ng-model="text">
                         </md-input-container>
                         <div class="center-block">
-                            <md-button type="submit" ng-if="!loading" ng-click="search()">Search</md-button>
+                            <md-button class="md-raised" type="submit" ng-if="!loading" ng-click="search()">Search</md-button>
                             <md-progress-circular ng-if="loading" md-diameter="24"></md-progress-circular>
                         </div>
                     </form>

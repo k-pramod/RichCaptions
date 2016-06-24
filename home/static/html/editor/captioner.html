@@ -1,5 +1,5 @@
 <div layout="row" layout-padding>
-    <div flex="66">
+    <div layout="column" flex="66" flex-sm="100">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="row player" style="padding: 1em;">
@@ -48,13 +48,21 @@
             </div>
         </div>
     </div>
-    <div flex="34">
+    <div layout="column" flex-gt-sm="34" layout-sm="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <md-button ng-click="skip(-5)"><<<</md-button>
-                <md-button ng-click="player.playVideo()">Play</md-button>
-                <md-button ng-click="player.pauseVideo()">Pause</md-button>
-                <md-button ng-click="skip(+5)">>>></md-button>
+                <md-button ng-click="skip(-5)" class="md-raised">
+                    <ng-md-icon icon="fast_rewind"></ng-md-icon>
+                </md-button>
+                <md-button ng-if="!player.paused" ng-click="player.playVideo()" class="md-raised">
+                    <ng-md-icon icon="play_arrow"></ng-md-icon>
+                </md-button>
+                <md-button ng-if="!player.playing" ng-click="player.pauseVideo()" class="md-raised">
+                    <ng-md-icon icon="pause"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="skip(+5)" class="md-raised">
+                    <ng-md-icon icon="fast_forward"></ng-md-icon>
+                </md-button>
             </div>
             <div class="panel-body">
                 <div class="caption-editor-container">
@@ -83,8 +91,11 @@
     </div>
 </div>
 
-<div ng-if="showAllCaptions">
-    <h3>Captions</h3>
+<div ng-if="!showAllCaptions">
+    <md-button class="md-raised" ng-click="toggleCaptions()">Show all captions</md-button>
+</div>
 
+<div ng-if="showAllCaptions">
+    <md-button class="md-raised" ng-click="toggleCaptions()">Hide all captions</md-button>
     <div ng-include="'/static/html/common/tables/player/caps.html'"></div>
 </div>
