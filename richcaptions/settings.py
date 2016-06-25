@@ -157,4 +157,10 @@ STATICFILES_FINDERS = (
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Django Compressor settings
-COMPRESS_ENABLED = True
+# COMPRESS SETTINGS
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+COMPRESS_URL = STATIC_URL
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', not DEBUG)
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
