@@ -108,3 +108,7 @@ ng-md-icon {
     display: inline-block;
     line-height: 1;
 }
+
+.captioner-controls button {
+    min-width: 0;
+}
