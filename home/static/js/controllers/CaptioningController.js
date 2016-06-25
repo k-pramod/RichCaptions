@@ -110,6 +110,7 @@ editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 
             var row = $('.captioner-caption-table tr[data-caption-id=' + currentCaptionId + ']');
             currentRow.removeClass('active');
             row.addClass('active');
+            currentRow = row;
 
             var table = $('.captioner-caption-table tbody');
 
