@@ -52,7 +52,7 @@ editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 
              2. Save the caption to the database
              3. Update the captions table
              */
-            if ($event.charCode == 13) {
+            if ($event.charCode == 13) { // User presses enter
                 var newCaption = $scope.captioner.newCaption;
                 newCaption.endtime_sec = $scope.player.getCurrentTime();
                 // Get API version of caption
