@@ -31,7 +31,9 @@ richCaptionsApp.factory('captionFactory', function ($http) {
             // set current caption to next one
             scope.currentCaption = getCurrentCaption(scope);
             scope.$apply();
+            return true;
         }
+        return false;
     };
 
     var isInRange = function (playerTime, caption) {

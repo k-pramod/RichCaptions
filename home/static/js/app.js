@@ -40,3 +40,25 @@ richCaptionsApp.config(function ($mdThemingProvider) {
         .primaryPalette('blue')
         .accentPalette('red');
 });
+
+richCaptionsApp.directive('bindCss', function ($window) {
+
+    return {
+        restrict: 'A',
+
+        link: function (scope, elem, attrs) {
+            var attributes = scope.$eval(attrs['bindCss']);
+            var targetElem = angular.element(document.querySelector(attributes[1]));
+
+            // Watch for changes
+            scope.$watch(function () {
+                return targetElem.height();
+            },
+            function (newValue, oldValue) {
+                if (newValue != oldValue) {
+                    elem.css(attributes[0], newValue);
+                }
+            });
+        }
+    };
+});

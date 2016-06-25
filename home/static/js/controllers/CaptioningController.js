@@ -1,7 +1,7 @@
 'use strict';
 
-editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 'videoFactory', 'captionFactory', 'toastFactory',
-    function CaptioningController($scope, $routeParams, videoFactory, captionFactory, toastFactory) {
+editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 'videoFactory', 'captionFactory', 'toastFactory', '$location', '$anchorScroll',
+    function CaptioningController($scope, $routeParams, videoFactory, captionFactory, toastFactory, $location, $anchorScroll) {
 
         $scope.videoId = $routeParams.videoId;
         $scope.video = {};
@@ -97,12 +97,28 @@ editorControllers.controller('CaptioningController', ['$scope', '$routeParams', 
                 console.warn(data);
             });
 
-        setInterval(function () {
-            $("#currentTime").text($scope.player.getCurrentTime().toFixed(2));
-        }, 100);
+        var currentRow = $();
 
         setInterval(function () {
-            captionFactory.updateCaptions($scope);
+            var hasUpdated = captionFactory.updateCaptions($scope);
+            if (hasUpdated) goToCurrentCaption();
         }, 1000);
+
+        var goToCurrentCaption = function () {
+            var currentCaptionId = $scope.currentCaption['id'];
+            // http://stackoverflow.com/questions/14166557/jquery-find-the-index-of-a-row-with-a-specific-data-attribute-value
+            var row = $('.captioner-caption-table tr[data-caption-id=' + currentCaptionId + ']');
+            currentRow.removeClass('active');
+            row.addClass('active');
+
+            var table = $('.captioner-caption-table tbody');
+
+            if (row.length) {
+                // http://stackoverflow.com/questions/2905867/how-to-scroll-to-specific-item-using-jquery
+                table.animate({
+                    scrollTop: row.offset().top - table.offset().top + table.scrollTop()
+                });
+            }
+        };
     }
 ]);

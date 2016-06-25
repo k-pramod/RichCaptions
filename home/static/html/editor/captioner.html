@@ -11,17 +11,13 @@
                 </div>
             </div>
             <div class="panel-body" layout="row">
-                <div flex="90" style="font-size:100%;">
+                <div flex="100" style="font-size:100%;">
                     <div class="caption-container">
                         <span katex auto-render bind="currentCaption.markup"></span>
                     </div>
                     <div class="caption-container">
                         <katex auto-render bind="captioner.newCaption.markup"></katex>
                     </div>
-                </div>
-                <div flex="10" class="text-center">
-                    <b>Time:</b><br>
-                    <span id="currentTime">{$ currentTime $}</span>
                 </div>
             </div>
         </div>
@@ -48,9 +44,9 @@
             </div>
         </div>
     </div>
-    <div layout="column" flex-gt-sm="34" layout-sm="row">
+    <div layout="column" flex-gt-sm="34" layout-sm="row" class="captioner-controls">
         <div class="panel panel-default">
-            <div class="panel-heading captioner-controls">
+            <div class="panel-heading contents-centered">
                 <md-button ng-click="skip(-5)" class="md-raised">
                     <ng-md-icon icon="fast_rewind"></ng-md-icon>
                 </md-button>
@@ -66,20 +62,13 @@
             </div>
             <div class="panel-body">
                 <div class="caption-editor-container">
-                    <b>New captions: </b><br>
-                    <table st-table="newCaptions" class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>Times</th>
-                            <th>Markup</th>
-                        </tr>
-                        </thead>
+                    <table st-table="newCaptions" class="table table-striped captioner-caption-table">
                         <tbody>
-                        <tr ng-repeat="caption in newCaptions">
-                            <td>
-                                {$ caption.starttime_sec $}
+                        <tr ng-repeat="caption in captions | orderBy:'starttime'" data-caption-id="{$ caption.id $}">
+                            <td class="bold">
+                                {$ Math.round(caption.starttime / 1000) $}
                                 <br>
-                                {$ caption.endtime_sec $}
+                                {$ Math.round(caption.endtime / 1000) $}
                             </td>
                             <td><span katex auto-render bind="caption.markup"></span></td>
                         </tr>
