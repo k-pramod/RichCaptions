@@ -7,9 +7,12 @@ from .serializers import VideoSerializer, CaptionSerializer
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
 from .filters import VideoFilter, CaptionFilter
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 
 class VideoViewSet(viewsets.ModelViewSet, NestedViewSetMixin):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
 
@@ -17,6 +20,8 @@ class VideoViewSet(viewsets.ModelViewSet, NestedViewSetMixin):
 
 
 class CaptionViewSet(viewsets.ModelViewSet, NestedViewSetMixin):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
     queryset = Caption.objects.all()
     serializer_class = CaptionSerializer
 
