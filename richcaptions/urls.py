@@ -23,6 +23,7 @@ from django.views.static import serve
 urlpatterns = [
     url(r'^%s(?P<path>.*)$' % re.escape(settings.STATIC_URL.lstrip('/')), serve),
     url(r'^api/', include('api.urls')),
+    url(r'^docs/', include('rest_framework_docs.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('home.urls'))
 ]
