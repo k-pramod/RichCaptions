@@ -1,0 +1,6 @@
+{
+  "name": "RichCaptions",
+  "tagline": "Symbolic math/science captions for educational videos ",
+  "body": "**Problem identified**:\r\n* Online education is rapidly gaining momentum\r\n* Video captioning systems are limited to displaying simple plain-text\r\n* Math/science students learn better by reading semantically-useful symbols\r\n\r\n**Solution created**:\r\n* Create web application where content creators can easily caption their videos in LaTeX, the most popular tool for typesetting math and science textbooks and academic papers\r\n* Allow anyone on the internet to watch these captioned videos without cost\r\n\r\n**Design paradigms**:\r\n* REST API design and documentation\r\n* Material Design\r\n\r\n**Technologies used**:\r\n* AngularJS + Javascript/jQuery\r\n* Django + REST framework\r\n* YouTube <iframe/> API\r\n* LaTeX, KaTeX\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
