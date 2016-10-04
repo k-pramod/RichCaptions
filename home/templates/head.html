@@ -1,0 +1,54 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% load compress %}
+
+{% compress css file %}
+    <link rel="stylesheet" href="/static/css/libraries/angular-material.min.css">
+    <link rel="stylesheet" href="/static/css/libraries/katex.min.css">
+    <link rel="stylesheet" href="/static/css/libraries/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/x-scss" href="/static/sass/main.scss">
+{% endcompress %}
+
+{% compress js file %}
+    <script src="/static/js/libraries/jquery-2.2.3.min.js" crossorigin="anonymous"></script>
+
+    {# AngularJS 1.5.3 #}
+    <script src="/static/js/libraries/angular/angular.min.js"></script>
+
+    {# AngularJS modules #}
+    <script src="/static/js/libraries/angular/angular-route.js"></script>
+    <script src="/static/js/libraries/angular/angular-animate.min.js"></script>
+    <script src="/static/js/libraries/angular/angular-aria.min.js"></script>
+    <script src="/static/js/libraries/angular/angular-messages.min.js"></script>
+    <script src="/static/js/libraries/angular/angular-sanitize.min.js"></script>
+    <script src="/static/js/libraries/angular/smart-table.min.js"></script>
+    <script type="text/javascript" src="/static/js/libraries/angular-youtube-embed.js"></script>
+
+    {# Angular Material design #}
+    <script src="/static/js/libraries/angular/angular-material.min.js"></script>
+    <script src="/static/js/libraries/angular/angular-material-icons.min.js"></script>
+
+    {# KaTeX (LaTeX rendering) #}
+    <script src="/static/js/libraries/katex.min.js"></script>
+    <script type="text/javascript" src="/static/js/libraries/katex-auto-render.js"></script>
+    <script type="text/javascript" src="/static/js/libraries/angular-katex.js"></script>
+
+    <script type="text/javascript" src="/static/js/app.js"></script>
+    <script type="text/javascript" src="/static/js/routes.js"></script>
+    <script type="text/javascript" src="/static/js/controllers.js"></script>
+    <script type="text/javascript" src="/static/js/controllers/HomeController.js"></script>
+    <script type="text/javascript" src="/static/js/controllers/PlayerController.js"></script>
+    <script type="text/javascript" src="/static/js/controllers/PlayerHomeController.js"></script>
+    <script type="text/javascript" src="/static/js/controllers/EditorController.js"></script>
+    <script type="text/javascript" src="/static/js/controllers/CaptioningController.js"></script>
+    <script type="text/javascript" src="/static/js/controllers/SearchController.js"></script>
+    <script type="text/javascript" src="/static/js/services/VideoFactory.js"></script>
+    <script type="text/javascript" src="/static/js/services/CaptionFactory.js"></script>
+    <script type="text/javascript" src="/static/js/services/ToastFactory.js"></script>
+    <script type="text/javascript" src="/static/js/services/SearchFactory.js"></script>
+
+
+    <script src="/static/js/libraries/editor.js"></script>
+{% endcompress %}
+
+<script src="https://www.youtube.com/iframe_api"></script>

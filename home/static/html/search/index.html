@@ -1,0 +1,38 @@
+<div ng-controller="SearchController">
+    <div ng-cloak>
+        <form>
+            <div layout-padding layout="row">
+
+                <div flex="25" layout="column">
+                    <form layout="row">
+                        <md-input-container class="margin-bottom-none">
+                            <label>Search text</label>
+                            <input type="text" ng-model="text">
+                        </md-input-container>
+                        <div class="center-block">
+                            <md-button class="md-raised" type="submit" ng-if="!loading" ng-click="search()">Search</md-button>
+                            <md-progress-circular ng-if="loading" md-diameter="24"></md-progress-circular>
+                        </div>
+                    </form>
+                </div>
+                <div ng-show="resultsFound" flex="75" class="search-results">
+                    <p class="bold margin-bottom-none">{$ results.length $} results found:</p>
+                    <md-list>
+                        <hr>
+                        <div ng-repeat="result in results">
+                            <md-list-item>
+                                <div class="md-list-item-text" layout="column">
+                                    <h4 class="margin-top-none">
+                                        <a target="_blank" href="#/player/{$ result.id $}">{$ result.title $}</a>
+                                    </h4>
+                                    <p class="margin-bottom-none">{$ result.resource_id $}</p>
+                                </div>
+                            </md-list-item>
+                            <hr>
+                        </div>
+                    </md-list>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

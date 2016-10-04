@@ -1,0 +1,90 @@
+<div layout="row" layout-padding>
+    <div layout="column" flex="66" flex-sm="100">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row player" style="padding: 1em;">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <youtube-video class="embed-responsive-item"
+                                       video-id="video.resource_id"
+                                       player="player"></youtube-video>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" layout="row">
+                <div flex="100">
+                    <div class="caption-container">
+                        <span katex auto-render bind="currentCaption.markup"></span>
+                    </div>
+                    <div class="caption-container">
+                        <katex auto-render bind="captioner.newCaption.markup"></katex>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout="row" class="newCaption-container">
+            <div flex="15">
+                <input type="number"
+                       ng-model="captioner.newCaption.starttime_sec"
+                       name="start"
+                       placeholder="Start"/>
+            </div>
+            <div flex="70">
+                <input type="text"
+                       ng-model="captioner.newCaption.markup"
+                       ng-change="updateStart()"
+                       ng-keypress="trySave($event)"
+                       name="markup"
+                       placeholder="Markup"/>
+            </div>
+            <div flex="15">
+                <input type="number"
+                       ng-model="captioner.newCaption.endtime_sec"
+                       name="end"
+                       placeholder="End"/>
+            </div>
+        </div>
+    </div>
+    <div layout="column" flex-gt-sm="34" layout-sm="row" class="captioner-controls">
+        <div class="panel panel-default">
+            <div class="panel-heading contents-centered">
+                <md-button ng-click="skip(-5)" class="md-raised">
+                    <ng-md-icon icon="fast_rewind"></ng-md-icon>
+                </md-button>
+                <md-button ng-if="!player.paused" ng-click="player.playVideo()" class="md-raised">
+                    <ng-md-icon icon="play_arrow"></ng-md-icon>
+                </md-button>
+                <md-button ng-if="!player.playing" ng-click="player.pauseVideo()" class="md-raised">
+                    <ng-md-icon icon="pause"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="skip(+5)" class="md-raised">
+                    <ng-md-icon icon="fast_forward"></ng-md-icon>
+                </md-button>
+            </div>
+            <div class="panel-body">
+                <div class="caption-editor-container">
+                    <table st-table="newCaptions" class="table table-striped captioner-caption-table">
+                        <tbody>
+                        <tr ng-repeat="caption in captions | orderBy:'starttime'" data-caption-id="{$ caption.id $}">
+                            <td class="bold">
+                                {$ Math.round(caption.starttime / 1000) $} -
+                                <br>
+                                {$ Math.round(caption.endtime / 1000) $}
+                            </td>
+                            <td><span katex auto-render bind="caption.markup"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="!showAllCaptions">
+    <md-button class="md-raised" ng-click="toggleCaptions()">Show all captions</md-button>
+</div>
+
+<div ng-if="showAllCaptions">
+    <md-button class="md-raised" ng-click="toggleCaptions()">Hide all captions</md-button>
+    <div ng-include="'/static/html/common/tables/player/caps.html'"></div>
+</div>
