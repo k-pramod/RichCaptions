@@ -1,0 +1,19 @@
+<div ng-cloak>
+    <md-content>
+        <md-tabs
+                md-dynamic-height
+                md-border-bottom
+                md-selected="selectedTab">
+            <md-tab label="home" ng-click="redirect('')">
+            </md-tab>
+            <md-tab label="player" ng-click="redirect('player')">
+            </md-tab>
+            <md-tab label="editor" ng-click="redirect('editor')">
+            </md-tab>
+            <md-tab label="search" ng-click="redirect('search')">
+            </md-tab>
+            <md-tab label="docs" ng-click="redirect('docs', true)">
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>

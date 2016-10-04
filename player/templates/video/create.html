@@ -1,0 +1,9 @@
+<h1>Create video</h1>
+
+<form method="post" href="{% url 'player_create' %}">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit">Submit</button>
+</form>

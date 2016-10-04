@@ -1,0 +1,31 @@
+<div layout="row" layout-padding>
+    <div flex="10" hide-md hide-sm hide-xs></div>
+    <div flex="80" flex-md="100" flex-sm="100" flex-xs="100">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row player">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <youtube-video class="embed-responsive-item"
+                                       video-id="video.resource_id"
+                                       player="player"></youtube-video>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="caption-container">
+                    <span katex auto-render bind="currentCaption.markup"></span>
+                </div>
+            </div>
+            <div class="pull-right">
+                <md-button ng-click="player.playVideo()">Play</md-button>
+                <md-button ng-click="player.pauseVideo()">Pause</md-button>
+            </div>
+        </div>
+    </div>
+    <div flex="10" hide-md hide-sm hide-xs></div>
+</div>
+
+
+<h3>Captions</h3>
+
+<div ng-include="'/static/html/common/tables/player/caps.html'"></div>

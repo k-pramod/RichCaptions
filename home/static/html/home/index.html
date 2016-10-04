@@ -1,0 +1,52 @@
+<md-content flex layout-margin layout-padding style="background-color:#2196F3; color:white;">
+    <h1 class="md-display-3">RichCaptions</h1>
+    <h3>Symbolic math/science captions for educational videos</h3>
+</md-content>
+
+<div layout="row" layout-sm="column" layout-xs="column" layout-padding>
+    <div flex-gt-sm="50" flex-sm="100" flex-xs="100">
+        <md-card>
+            <img ng-src="/static/img/home/richer-captions.png" class="md-card-image" alt="Washed Out">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Richer captions for educational videos</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>
+                    Spend less time deciphering plain text and more time understanding semantically-useful captions.
+                </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="redirect('player')">Watch videos</md-button>
+                <md-button ng-click="redirect('editor')">Caption videos</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <div flex-gt-sm="50" flex-sm="100" flex-xs="100">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">RichCaptions is in active development!</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>Over the next few weeks, I hope to:</p>
+                <ul>
+                    <li>Develop an improved editor interface</li>
+                    <li>Create a Chrome Extension to automatically show captions in YouTube.com</li>
+                </ul>
+                <p>
+                    Check out the code and provide suggestions on on this project's
+                    <a target="_blank" href="https://github.com/k-pramod/RichCaptions">GitHub repository</a>
+                </p>
+                <p>
+                    - <a href="http://www.pramodk.net/" target="_blank">Pramod K.</a>, May 2016
+                </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button target="_blank" href="https://github.com/k-pramod/RichCaptions">GitHub repo</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</div>
