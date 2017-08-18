@@ -39,13 +39,11 @@ INSTALLED_APPS = [
     'compressor',
     'rest_framework_docs',
     'rest_framework',
+    'django_filters',
     'rest_framework_filters',
     'corsheaders',
     'rest_framework_extensions',
     'api.apps.ApiConfig',
-    'player.apps.PlayerConfig',
-    'editor.apps.EditorConfig',
-    'home.apps.HomeConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -67,9 +65,6 @@ ROOT_URLCONF = 'richcaptions.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'api', 'templates')
-        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,8 +143,8 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 
 # STATIC FILES
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'staticfiles')
+STATIC_URL = '/api/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',

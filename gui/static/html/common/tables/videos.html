@@ -15,4 +15,11 @@
             <md-button ng-if='!displayEditButton' ng-click="redirect('/player/' + video.id )">watch now</md-button>
         </md-card-actions>
     </md-card>
+    <md-card flex-gt-sm="100" ng-show="!videos.length">
+        <md-card-title>
+            <md-card-title-text>
+                <p class="md-headline">No videos available.</p>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
 </div>

@@ -1,7 +1,7 @@
 import rest_framework_filters as filters
 
-from player.models import Video
-from editor.models import Caption
+from api.models import Video
+from api.models import Caption
 
 
 class VideoFilter(filters.FilterSet):

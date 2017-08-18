@@ -1,12 +1,12 @@
 from rest_framework import viewsets, filters
 
-from player.models import Video
-from editor.models import Caption
+from api.models import Video
+from api.models import Caption
 
-from .serializers import VideoSerializer, CaptionSerializer
+from api.serializers import VideoSerializer, CaptionSerializer
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
-from .filters import VideoFilter, CaptionFilter
+from api.filters import VideoFilter, CaptionFilter
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 

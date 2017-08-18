@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from player.models import Video
-from editor.models import Caption
+from api.models import Video
+from api.models import Caption
 
-from .validators import required
+from api.validators import required
 
 
 class CaptionSerializer(serializers.ModelSerializer):

@@ -11,7 +11,7 @@ urlpatterns = [
 
 from rest_framework_extensions.routers import ExtendedDefaultRouter as Router
 
-from .viewsets import VideoViewSet, CaptionViewSet
+from api.viewsets import VideoViewSet, CaptionViewSet
 
 router = Router()
 (

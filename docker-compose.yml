@@ -6,23 +6,30 @@ services:
     build: ./api/
     # Expose port 8080 to the internal network
     expose:
-      - 8080
+      - 80
     # Migrate the database and run the Django development server
-    command: bash -c "python manage.py migrate && gunicorn richcaptions.wsgi:application --workers=4 --bind=:8080"
+    command: >
+      bash -c "python manage.py migrate && 
+        python manage.py collectstatic --no-input && 
+        gunicorn richcaptions.wsgi:application --workers=4 --reload --bind=:80"
     environment:
       - DJANGO_SECRET_KEY="w-i^4z9)##dr)#qurr=_m6#vp7&ktf--vp)8+c23jdp*pks=%f"
       - DJANGO_SETTINGS_MODULE=richcaptions.settings
     volumes:
-      - richcaptions-static:/www/static
+      - richcaptions-api-static:/richcaptions/api/static/
+      - ./api/:/richcaptions/api/
 
   nginx:
     build: ./nginx/
     depends_on:
+      # Wait for api service to be up
       - api
     ports:
+      # Map host port 8001 to container port 80
       - "8001:80"
     volumes:
-      - richcaptions-static:/www/static
+      - richcaptions-api-static:/www/api/static/
+      - ./gui/:/www/gui/
 
 volumes:
-  richcaptions-static:
+  richcaptions-api-static:

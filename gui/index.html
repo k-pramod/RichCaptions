@@ -1,21 +1,19 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RichCaptions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% load compress %}
-
-{% compress css file %}
     <link rel="stylesheet" href="/static/css/libraries/angular-material.min.css">
     <link rel="stylesheet" href="/static/css/libraries/katex.min.css">
     <link rel="stylesheet" href="/static/css/libraries/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/x-scss" href="/static/sass/main.scss">
-{% endcompress %}
 
-{% compress js file %}
     <script src="/static/js/libraries/jquery-2.2.3.min.js" crossorigin="anonymous"></script>
 
-    {# AngularJS 1.5.3 #}
     <script src="/static/js/libraries/angular/angular.min.js"></script>
 
-    {# AngularJS modules #}
     <script src="/static/js/libraries/angular/angular-route.js"></script>
     <script src="/static/js/libraries/angular/angular-animate.min.js"></script>
     <script src="/static/js/libraries/angular/angular-aria.min.js"></script>
@@ -24,11 +22,9 @@
     <script src="/static/js/libraries/angular/smart-table.min.js"></script>
     <script type="text/javascript" src="/static/js/libraries/angular-youtube-embed.js"></script>
 
-    {# Angular Material design #}
     <script src="/static/js/libraries/angular/angular-material.min.js"></script>
     <script src="/static/js/libraries/angular/angular-material-icons.min.js"></script>
 
-    {# KaTeX (LaTeX rendering) #}
     <script src="/static/js/libraries/katex.min.js"></script>
     <script type="text/javascript" src="/static/js/libraries/katex-auto-render.js"></script>
     <script type="text/javascript" src="/static/js/libraries/angular-katex.js"></script>
@@ -49,6 +45,28 @@
 
 
     <script src="/static/js/libraries/editor.js"></script>
-{% endcompress %}
 
-<script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+</head>
+<body ng-app="RichCaptions" ng-cloak>
+<div layout="row" layout-padding>
+    <div flex="10" hide-sm hide-xs></div>
+    <div flex="80" flex-sm="100" flex-xs="100">
+        <div ng-include="'/static/html/common/partials/navbar.html'"></div>
+        <div ng-view></div>
+    </div>
+    <div flex="10" hide-sm hide-xs></div>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62489004-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
