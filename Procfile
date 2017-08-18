@@ -1,1 +1,0 @@
-web: python manage.py collectstatic --noinput; gunicorn --pythonpath richcaptions richcaptions.wsgi --log-file -

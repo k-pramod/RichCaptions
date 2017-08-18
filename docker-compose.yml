@@ -1,13 +1,28 @@
 version: '3'
 
 services:
-  web:
+  api:
     # Build from the current folder context
-    build: .
-    # Map host port 8001 to Docker-network-internal port 80
-    ports:
-      - "8001:80"
+    build: ./api/
+    # Expose port 8080 to the internal network
+    expose:
+      - 8080
     # Migrate the database and run the Django development server
-    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:80"
+    command: bash -c "python manage.py migrate && gunicorn richcaptions.wsgi:application --workers=4 --bind=:8080"
     environment:
       - DJANGO_SECRET_KEY="w-i^4z9)##dr)#qurr=_m6#vp7&ktf--vp)8+c23jdp*pks=%f"
+      - DJANGO_SETTINGS_MODULE=richcaptions.settings
+    volumes:
+      - richcaptions-static:/www/static
+
+  nginx:
+    build: ./nginx/
+    depends_on:
+      - api
+    ports:
+      - "8001:80"
+    volumes:
+      - richcaptions-static:/www/static
+
+volumes:
+  richcaptions-static:
