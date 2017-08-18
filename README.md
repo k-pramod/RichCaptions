@@ -30,9 +30,10 @@ Below, you can compare the status-quo (plain-text) captions to the richer ones p
 
 - AngularJS + Javascript/jQuery
 - Django + REST framework
-- Docker and Docker Compose
+- Docker + Docker Compose
 - YouTube API
 - LaTeX, KaTeX
+- TravisCI
 
 ---
 Pramod Kotipalli http://pramodk.net/
