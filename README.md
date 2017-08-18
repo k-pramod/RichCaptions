@@ -1,5 +1,7 @@
 # RichCaptions
 
+[![Build Status](https://travis-ci.org/p13i/rich-captions.svg?branch=master)](https://travis-ci.org/p13i/rich-captions)
+
 Symbolic math/science captions for educational videos
 
 Live project: http://apps.pramodk.net:8001/
