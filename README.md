@@ -1,22 +1,23 @@
-# RichCaptions
+# RichCaptions [![Build Status](https://travis-ci.org/p13i/rich-captions.svg?branch=master)](https://travis-ci.org/p13i/rich-captions)
 
-[![Build Status](https://travis-ci.org/p13i/rich-captions.svg?branch=master)](https://travis-ci.org/p13i/rich-captions)
+_Symbolic math/science captions for educational videos_
 
-Symbolic math/science captions for educational videos
-
-Live project: http://apps.pramodk.net:8001/
+**Live project**: http://apps.pramodk.net:8001/
 
 ## Problem identified:
 
-- Online education is rapidly gaining momentum
-- Video captioning systems are limited to displaying simple plain-text
-- Math/science students learn better by reading semantically-useful symbols
+- Online education solutions are rapidly gaining popularity and institutional adoption
+- Existing video captioning systems are limited to displaying simple plain-text messages
+- Math/science students learn better by reading semantically-useful symbols as found in text books
 
 ## Solution created:
 
-- Create web application where content creators can easily caption their videos in LaTeX, the most popular tool for typesetting math and science textbooks and academic papers
-- Allow anyone on the internet to watch these captioned videos without cost
-- Sample: Below, you can compare the status-quo (plain-text) captions to the richer ones provided by this service:
+- Created web application where content creators can easily caption their videos in LaTeX, the most popular tool for typesetting math and science textbooks and academic papers
+- Allows anyone on the internet to watch these captioned videos without cost
+
+## Screenshot
+
+Below, you can compare the status-quo (plain-text) captions to the richer ones provided by this service:
 
 ![RichCaptions sample](./img/sample.png)
 
