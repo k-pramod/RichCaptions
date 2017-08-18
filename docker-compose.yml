@@ -10,4 +10,4 @@ services:
     # Migrate the database and run the Django development server
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:80"
     environment:
-      - DJANGO_SECRET_KEY="a*%pri$7*koempmv7v&#=eueo+2v)cbg39t*6%a-z3eq#22ldx"
+      - DJANGO_SECRET_KEY="w-i^4z9)##dr)#qurr=_m6#vp7&ktf--vp)8+c23jdp*pks=%f"
