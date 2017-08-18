@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    # Build from the current folder context
+    build: .
+    # Map host port 8001 to Docker-network-internal port 80
+    ports:
+      - "8001:80"
+    # Migrate the database and run the Django development server
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:80"
+    environment:
+      - DJANGO_SECRET_KEY="a*%pri$7*koempmv7v&#=eueo+2v)cbg39t*6%a-z3eq#22ldx"
