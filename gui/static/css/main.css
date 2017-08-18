@@ -112,21 +112,21 @@ ng-md-icon {
 .caption-editor-container {
   font-size: 80%;
   height: 100%;
-  table {
-    thead, tbody {
-      display: block;
-    }
-    tbody {
-      height: 200px; /* Just for the demo          */
-      overflow-y: auto; /* Trigger vertical scroll    */
-      overflow-x: hidden; /* Hide the horizontal scroll */
-      .active {
-        color: rgb(255, 82, 82);
-        font-weight: bolder;
-        text-decoration: blink;
-      }
-    }
-  }
+}
+
+.caption-editor-container table thead, tbody {
+  display: block;
+}
+
+.caption-editor-container table tbody {
+  height: 200px; /* Just for the demo          */
+  overflow-y: auto; /* Trigger vertical scroll    */
+  overflow-x: hidden; /* Hide the horizontal scroll */
+}
+.caption-editor-container table tbody .active {
+color: rgb(255, 82, 82);
+font-weight: bolder;
+text-decoration: blink;
 }
 
 .captioner-controls button {
